@@ -12,6 +12,7 @@ Bruk en vanlig 'for-løkke' til å iterere gjennom `people`-arrayet og utfør f�
 // done
 - Lag en ny nøkkel på hvert person-objekt i arrayet kalt "city" og sett verdien
   til en random by fra `cities`-arrayen.
+  // done
 
 - Lag en ny nøkkel på hvert person-objekt kalt "title" og sett den til "Mr." for
   menn og "Ms." for kvinner.
@@ -90,16 +91,24 @@ let combinedAge = 0;
 
 // Skriv koden for oppgave 1 her
 
-
 for (let person of people) {
-  if (person.name === "Otto") continue;
-    const randomCity = Math.floor(Math.random() * cities.length);
-   person.city = cities[randomCity];
+  if (person.name === "Otto") continue; //making sure Otto gets skipped throughout the loop
+  const randomCity = Math.floor(Math.random() * cities.length); //getting a random index from the cities array and storing it in a new variable
+  person.city = cities[randomCity]; //making a new key for city and setting randomCity as the value
+  person.title = person.male ? "Mr." : "Ms."; //making a new key for title and saying if "male" is true, title = Mr., otherwise, title is Ms.
+  person.age += 2; //adding 2 to everyones age (except Otto)
+  person.hobbies.unshift("coding"); //adding "coding" to the starty of the hobbies array.
+  combinedAge += person.age; //increasing the combinedAge variable with the age each time the loop runs
 }
-
  console.log(people);
-let averageAge = 0;
+console.log(`the combined age is ${combinedAge}`); //logging the combined age
 
+
+let averageAge = 0;
+const peopleList = people.length - 1; //getting the "new" lenght of "people" without Otto and storing it in a new variable 
+
+averageAge = combinedAge / peopleList; //subtracting the combinedAge with the updated length of people to get the average age
+console.log(`the average age is ${averageAge}`);
 /******************************************************************************
 2.
 
@@ -121,6 +130,24 @@ diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 ******************************************************************************/
 
 // Skriv koden for oppgave 2 her
+function diceRoller (8) {
+  const result = []
+  for (let i = 0; i < length; i ++) {
+    const random = Math.floor(Math.random() * 6);
+    result.push(random);
+  }
+return result;
+}
+// function diceRoller (length, sides) {
+//  const result = [];
+//  for (let i = 0; i < length; i ++) {
+//   const random = Math.floor(Math.random() * sides) + 1;
+//   result.push(random);
+//  }
+// return result;
+//   }
+//       console.log(diceRoller(5, 20));
+
 
 /******************************************************************************
 3.
