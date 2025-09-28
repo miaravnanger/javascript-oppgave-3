@@ -130,23 +130,36 @@ diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 ******************************************************************************/
 
 // Skriv koden for oppgave 2 her
-function diceRoller (8) {
-  const result = []
+function diceRoller (length) {
+  const result = [] //making an empty array to store the result in
   for (let i = 0; i < length; i ++) {
-    const random = Math.floor(Math.random() * 6);
-    result.push(random);
+    const random = Math.floor(Math.random() * 6) + 1;
+    result.push(random); //generating random number and pushing it to the result array
   }
 return result;
 }
-// function diceRoller (length, sides) {
-//  const result = [];
-//  for (let i = 0; i < length; i ++) {
-//   const random = Math.floor(Math.random() * sides) + 1;
-//   result.push(random);
-//  }
-// return result;
-//   }
-//       console.log(diceRoller(5, 20));
+const diceResults = diceRoller(5); //running the function and storing the result in a new variable
+console.log(diceResults);
+console.log(diceResults);
+ //logging the results to check that we can get both 1 and 6 
+
+//new function with two parameters
+function diceRoller2 (length, sides) {
+ const result = [];
+ for (let i = 0; i < length; i ++) {
+  const random = Math.floor(Math.random() * sides) + 1;
+  result.push(random);
+ }
+return result;
+  }
+  const diceResults2 = diceRoller2(5, 10);
+
+  console.log(diceResults2);
+    console.log(diceResults2);
+      console.log(diceResults2);
+        console.log(diceResults2);
+  //checking enough times to see that we can get both 1 and 10 
+
 
 
 /******************************************************************************
@@ -176,6 +189,19 @@ skal returnere:
 
 // Skriv koden for oppgave 3 her
 
+const words = ["CAn ", "you  ", "  cLEan "," UP", "ThIs   ", "TEXt?"]
+
+function cleanWords (arr) {
+  const cleaned = [];  //new array for the cleaned words
+  for (let word of arr) {
+    const trimmed = word.trim(); //removing whitespaces
+    const lowerCased = trimmed.toLowerCase(); //making all the letters lowercase
+    cleaned.push(lowerCased); //pushing the trimmed and lowercased words into the new array
+}
+return cleaned.join(" "); //using the join("") method to turn the array into a string with a space between each word
+}
+console.log(cleanWords(words));
+
 /******************************************************************************
 4.
 
@@ -203,8 +229,19 @@ skal returnere "whao is ohe ptino tf ohis?"
 
 function doubleSwap(string, charA, charB) {
   // Skriv koden for oppgave 4 her
+let result = ""; //empty string to store the result
+for (let char of string) {
+  if (char === charA) {
+    result += charB; //if the current char is charA, replace it with charB 
+  } else if (char === charB) {
+    result += charA; //if the current char is charB, replace it with charA
+  } else {
+    result += char; //otherwise, keep the char as it is
 }
-
+}
+return result;
+}
+console.log(doubleSwap("I wonder if this will work", "w", "r"));
 /******************************************************************************
 5.
 
